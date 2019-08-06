@@ -1,24 +1,26 @@
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
 
-#pragma once
-
-#endif // GAMESCENE_H
-
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QMouseEvent>
 
-class GameScene: public QGraphicsScene{
+#include "gamemanager.h"
 
-    Q_OBJECT
+
+class GameScene: public QGraphicsScene{
 
 public:
     explicit GameScene(QWidget*);
 
     void mousePressEvent(QGraphicsSceneMouseEvent*);
 
+
 private:
 
+    void update(GameManager::nodeState** map);
+
 };
+
+#endif // GAMESCENE_H

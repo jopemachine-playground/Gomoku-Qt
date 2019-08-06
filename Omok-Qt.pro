@@ -25,11 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        gamemanager.cpp \
         gamescene.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        gamemanager.h \
         gamescene.h \
         mainwindow.h
 
