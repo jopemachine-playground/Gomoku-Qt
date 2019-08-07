@@ -16,25 +16,21 @@ bool GameScene::isValidInput(GameMap map, ClickedPoint clickedPoint){
             == nodeState::empty ? true : false;
 }
 
-void GameScene::layStone(GameMap map, ClickedPoint clickedPoint)
-{
-    auto res = ResourceManager::getInstance();
-
-    map[clickedPoint.first][clickedPoint.second] = nodeState::white;
-
-    res->genBlackStone(*this, {clickedPoint.first * 33, clickedPoint.second * 33});
-}
 
 ClickedPoint GameScene::inputToMap(QPointF& pixelPoint)
 {
     int x = static_cast<int>(pixelPoint.rx());
     int y = static_cast<int>(pixelPoint.ry());
 
+    // relevant 값은 클릭한 값보다 더 적은 ONE_RECT_LENGTH의 (가능한 가장 큰 값인) 배수
     int relevantX = x - (x % ONE_RECT_LENGTH);
     int relevantY = y - (y % ONE_RECT_LENGTH);
 
-    if((relevantX + ONE_RECT_LENGTH - x) % ONE_RECT_LENGTH < (x - relevantX) % ONE_RECT_LENGTH) relevantX += ONE_RECT_LENGTH;
-    if((relevantY + ONE_RECT_LENGTH - y) % ONE_RECT_LENGTH < (y - relevantY) % ONE_RECT_LENGTH) relevantY += ONE_RECT_LENGTH;
+    // relevantX, relevantY가 이전의 Rect 칸 보다 이후의 Rect 칸에 가까운 경우, 좌표를 업데이트 한다
+    if((relevantX + ONE_RECT_LENGTH - x) % ONE_RECT_LENGTH < (x - relevantX) % ONE_RECT_LENGTH)
+        relevantX += ONE_RECT_LENGTH;
+    if((relevantY + ONE_RECT_LENGTH - y) % ONE_RECT_LENGTH < (y - relevantY) % ONE_RECT_LENGTH)
+        relevantY += ONE_RECT_LENGTH;
 
     int indexX = relevantX / ONE_RECT_LENGTH;
     int indexY = relevantY / ONE_RECT_LENGTH;
@@ -60,9 +56,9 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 
     // 돌을 둠
-    layStone(map, clickedPoint);
+    // layStone(map, clickedPoint);
 
-    if(gm->checkGameOver({0,0})){
+    if(gm->checkGameOver(clickedPoint)){
         // 게임 오버 조건 만족 및 이벤트 처리
 
     }
@@ -71,3 +67,10 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
     // qDebug() << pixelPoint.rx() << " " << pixelPoint.ry();
 }
+
+void GameScene::boardplateLoad(){
+    auto res = ResourceManager::getInstance();
+    this->addItem(res->getBoardPlate());
+}
+
+

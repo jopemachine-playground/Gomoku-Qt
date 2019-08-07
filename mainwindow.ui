@@ -7,11 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>923</width>
-    <height>697</height>
+    <height>731</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QGraphicsView" name="graphicsView">
@@ -19,15 +22,33 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>610</width>
-      <height>610</height>
+      <width>635</width>
+      <height>635</height>
      </rect>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="Dense3Pattern">
+      <color alpha="255">
+       <red>161</red>
+       <green>145</green>
+       <blue>146</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="transformationAnchor">
+     <enum>QGraphicsView::NoAnchor</enum>
+    </property>
+    <property name="resizeAnchor">
+     <enum>QGraphicsView::NoAnchor</enum>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>670</x>
       <y>20</y>
       <width>243</width>
       <height>52</height>
@@ -127,16 +148,28 @@
    </property>
   </action>
   <action name="actionhuman_vs_human">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>human vs human</string>
    </property>
   </action>
   <action name="actionhuman_vs_com">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>human vs com</string>
    </property>
   </action>
   <action name="actioncom_vs_com">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>com vs com</string>
    </property>
@@ -153,11 +186,20 @@
    </property>
   </action>
   <action name="actionPlayer_first">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Player first</string>
    </property>
   </action>
   <action name="actionComputer_first">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Computer first</string>
    </property>

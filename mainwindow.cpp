@@ -9,8 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     gameScene = new GameScene(this);
-    auto res = ResourceManager::getInstance();
-    gameScene->addItem(res->getBoardPlate());
+    gameScene->boardplateLoad();
     ui->graphicsView->setScene(gameScene);
     setWindowTitle(WIN_TITLE);
 }
@@ -22,8 +21,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionNew_Game_triggered()
 {
+    auto res = ResourceManager::getInstance();
     auto gm = GameManager::getInstance();
     gm->initGame();
+    res->deleteAllItem(*gameScene);
 }
 
 void MainWindow::on_actionExit_triggered()

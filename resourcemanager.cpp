@@ -13,7 +13,7 @@ ResourceManager::ResourceManager(){
     boardPlate = new QGraphicsPixmapItem(QPixmap(RESPATH_BOARDPLATE));
     whiteStone = new QPixmap(RESPATH_WHITESTONE);
     blackStone = new QPixmap(RESPATH_BLACKSTONE);
-    itemVector = new std::vector<QGraphicsPixmapItem*>;
+    items = new std::vector<QGraphicsPixmapItem*>;
 }
 
 ResourceManager::~ResourceManager(){
@@ -21,9 +21,40 @@ ResourceManager::~ResourceManager(){
     delete boardPlate;
     delete whiteStone;
     delete blackStone;
-    delete itemVector;
+    delete items;
 }
 
 QGraphicsPixmapItem* ResourceManager::getBoardPlate(){
     return boardPlate;
+}
+
+void ResourceManager::genWhiteStone(GameScene& scene, std::pair<int, int> pos){
+
+    auto whiteStoneItem = new QGraphicsPixmapItem(*whiteStone);
+
+    whiteStoneItem->setPos(pos.first, pos.second);
+
+    items->push_back(whiteStoneItem);
+
+    scene.addItem(whiteStoneItem);
+}
+
+void ResourceManager::genBlackStone(GameScene& scene, std::pair<int, int> pos){
+
+    auto blackStoneItem = new QGraphicsPixmapItem(*blackStone);
+
+    blackStoneItem->setPos(pos.first, pos.second);
+
+    items->push_back(blackStoneItem);
+
+    scene.addItem(blackStoneItem);
+}
+
+void ResourceManager::deleteAllItem(GameScene& scene){
+
+    for(auto i : *items){
+        scene.removeItem(i);
+        items->pop_back();
+    }
+
 }

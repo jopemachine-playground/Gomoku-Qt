@@ -1,8 +1,11 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
+
 #include <utility>
 
 typedef int TurnNumber;
+
+class Player;
 
 class GameManager{
 public:
@@ -42,6 +45,10 @@ public:
     }
 
 private:
+
+    Player* client;
+
+    Player* opponent;
 
     static GameManager* instance;
 

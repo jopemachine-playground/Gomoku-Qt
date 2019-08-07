@@ -17,9 +17,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_actionNew_Game_triggered();
 
     void on_actionExit_triggered();
+
+    void on_actionNew_Game_triggered();
 
     void on_actionhuman_vs_human_triggered();
 

@@ -25,17 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        computerplayer.cpp \
         gamemanager.cpp \
         gamescene.cpp \
+        humanplayer.cpp \
         main.cpp \
         mainwindow.cpp \
         resourcemanager.cpp
 
 HEADERS += \
+        computerplayer.h \
         constant.h \
         gamemanager.h \
         gamescene.h \
+        humanplayer.h \
         mainwindow.h \
+        player.h \
         resourcemanager.h
 
 FORMS += \

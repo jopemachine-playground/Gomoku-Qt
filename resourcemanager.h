@@ -9,7 +9,8 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <vector>
-#include <gamescene.h>
+
+#include "gamescene.h"
 
 class ResourceManager{
 public:
@@ -18,27 +19,11 @@ public:
 
     QGraphicsPixmapItem* getBoardPlate();
 
-    void genWhiteStone(GameScene& scene, std::pair<int, int> pos){
+    void genWhiteStone(GameScene& scene, std::pair<int, int> pos);
 
-        auto whiteStoneItem = new QGraphicsPixmapItem(*whiteStone);
+    void genBlackStone(GameScene& scene, std::pair<int, int> pos);
 
-        whiteStoneItem->setPos(pos.first, pos.second);
-
-        itemVector->push_back(whiteStoneItem);
-
-        scene.addItem(whiteStoneItem);
-    }
-
-    void genBlackStone(GameScene& scene, std::pair<int, int> pos){
-
-        auto blackStoneItem = new QGraphicsPixmapItem(*blackStone);
-
-        blackStoneItem->setPos(pos.first, pos.second);
-
-        itemVector->push_back(blackStoneItem);
-
-        scene.addItem(blackStoneItem);
-    }
+    void deleteAllItem(GameScene& scene);
 
 private:
 
@@ -46,7 +31,7 @@ private:
 
     ~ResourceManager();
 
-    std::vector<QGraphicsPixmapItem*> *itemVector;
+    std::vector<QGraphicsPixmapItem*> *items;
 
     QGraphicsPixmapItem* boardPlate;
 

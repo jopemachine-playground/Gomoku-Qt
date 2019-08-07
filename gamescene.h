@@ -20,16 +20,13 @@ public:
 
     void mousePressEvent(QGraphicsSceneMouseEvent*);
 
+    void boardplateLoad();
 
 private:
-
-    void update(GameMap map);
 
     ClickedPoint inputToMap(QPointF& pixelPoint);
 
     bool isValidInput(GameMap map, ClickedPoint clickedPoint);
-
-    void layStone(GameMap map, ClickedPoint clickedPoint);
 
 };
 
