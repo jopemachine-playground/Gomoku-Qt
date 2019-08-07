@@ -2,6 +2,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include "constant.h"
 #include "gamescene.h"
+#include "resourcemanager.h"
 
 GameScene::GameScene(QWidget *parent): QGraphicsScene(parent){}
 
@@ -15,9 +16,13 @@ bool GameScene::isValidInput(GameMap map, ClickedPoint clickedPoint){
             == nodeState::empty ? true : false;
 }
 
-void GameScene::layStone(ClickedPoint clickedPoint)
+void GameScene::layStone(GameMap map, ClickedPoint clickedPoint)
 {
+    auto res = ResourceManager::getInstance();
 
+    map[clickedPoint.first][clickedPoint.second] = nodeState::white;
+
+    res->genBlackStone(*this, {clickedPoint.first * 33, clickedPoint.second * 33});
 }
 
 ClickedPoint GameScene::inputToMap(QPointF& pixelPoint)
@@ -48,14 +53,14 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     // 클릭 포인트 판정 및 처리
     std::pair<int, int> clickedPoint = inputToMap(pixelPoint);
 
-    qDebug() << clickedPoint.first << " " << clickedPoint.second;
+    // qDebug() << clickedPoint.first << " " << clickedPoint.second;
 
     if(!isValidInput(map, clickedPoint)){
         return;
     }
 
     // 돌을 둠
-    layStone(clickedPoint);
+    layStone(map, clickedPoint);
 
     if(gm->checkGameOver({0,0})){
         // 게임 오버 조건 만족 및 이벤트 처리
@@ -64,5 +69,5 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 
 
-    qDebug() << pixelPoint.rx() << " " << pixelPoint.ry();
+    // qDebug() << pixelPoint.rx() << " " << pixelPoint.ry();
 }

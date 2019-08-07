@@ -29,7 +29,7 @@ private:
 
     bool isValidInput(GameMap map, ClickedPoint clickedPoint);
 
-    void layStone(ClickedPoint clickedPoint);
+    void layStone(GameMap map, ClickedPoint clickedPoint);
 
 };
 

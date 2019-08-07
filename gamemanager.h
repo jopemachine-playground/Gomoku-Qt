@@ -7,8 +7,6 @@ typedef int TurnNumber;
 class GameManager{
 public:
 
-    static GameManager* instance;
-
     static GameManager* getInstance();
 
     TurnNumber turn;
@@ -45,6 +43,8 @@ public:
 
 private:
 
+    static GameManager* instance;
+
     typedef struct{
         gameMode p_mode;
         gameOrder p_order;
@@ -60,6 +60,7 @@ private:
 
     GameManager();
 
+    ~GameManager();
 };
 
 #endif // GAMEMANAGER_H

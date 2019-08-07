@@ -11,6 +11,10 @@ GameManager* GameManager::getInstance(){
     return instance;
 }
 
+GameManager::~GameManager(){
+    delete instance;
+}
+
 void GameManager::initGame(){
     turn = 0;
 

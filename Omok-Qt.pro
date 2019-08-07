@@ -28,13 +28,15 @@ SOURCES += \
         gamemanager.cpp \
         gamescene.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        resourcemanager.cpp
 
 HEADERS += \
         constant.h \
         gamemanager.h \
         gamescene.h \
-        mainwindow.h
+        mainwindow.h \
+        resourcemanager.h
 
 FORMS += \
         mainwindow.ui

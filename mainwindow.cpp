@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QGraphicsPixmapItem>
+#include "resourcemanager.h"
+#include "constant.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,10 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     gameScene = new GameScene(this);
-    QGraphicsPixmapItem *map = new QGraphicsPixmapItem(QPixmap("resource/img/boardplate_594.png"));
-    gameScene->addItem(map);
+    auto res = ResourceManager::getInstance();
+    gameScene->addItem(res->getBoardPlate());
     ui->graphicsView->setScene(gameScene);
-    setWindowTitle("Omok");
+    setWindowTitle(WIN_TITLE);
 }
 
 MainWindow::~MainWindow()
