@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     gameScene = new GameScene(this);
-    QGraphicsPixmapItem *map = new QGraphicsPixmapItem(QPixmap("resource/img/goardEdited_594.png"));
+    QGraphicsPixmapItem *map = new QGraphicsPixmapItem(QPixmap("resource/img/boardplate_594.png"));
     gameScene->addItem(map);
     ui->graphicsView->setScene(gameScene);
     setWindowTitle("Omok");
@@ -21,10 +21,41 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionNew_Game_triggered()
 {
-
+    auto gm = GameManager::getInstance();
+    gm->initGame();
 }
 
 void MainWindow::on_actionExit_triggered()
 {
     exit(0);
+}
+
+void MainWindow::on_actionhuman_vs_human_triggered()
+{
+    auto gm = GameManager::getInstance();
+    gm->setGameMode(GameManager::gameMode::humanVshuman);
+}
+
+void MainWindow::on_actionhuman_vs_com_triggered()
+{
+    auto gm = GameManager::getInstance();
+    gm->setGameMode(GameManager::gameMode::humanVsCom);
+}
+
+void MainWindow::on_actioncom_vs_com_triggered()
+{
+    auto gm = GameManager::getInstance();
+    gm->setGameMode(GameManager::gameMode::ComVsCom);
+}
+
+void MainWindow::on_actionPlayer_first_triggered()
+{
+    auto gm = GameManager::getInstance();
+    gm->setGameOrder(GameManager::gameOrder::playerFirst);
+}
+
+void MainWindow::on_actionComputer_first_triggered()
+{
+    auto gm = GameManager::getInstance();
+    gm->setGameOrder(GameManager::gameOrder::comFirst);
 }

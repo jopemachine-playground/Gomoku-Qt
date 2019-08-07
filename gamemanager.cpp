@@ -1,10 +1,6 @@
+#include "constant.h"
 #include "gamemanager.h"
 #include <memory.h>
-
-#define BOARD_LENGTH_X 19
-#define BOARD_LENGTH_Y 19
-
-#define RANGE_DIVISION 25
 
 GameManager* GameManager::instance = nullptr;
 
@@ -24,7 +20,7 @@ void GameManager::initGame(){
         memset(gameMap[i], 0, sizeof(nodeState) * BOARD_LENGTH_Y);
     }
 
-
+    modeSet();
 
 }
 

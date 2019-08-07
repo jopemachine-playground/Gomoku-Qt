@@ -31,6 +31,7 @@ SOURCES += \
         mainwindow.cpp
 
 HEADERS += \
+        constant.h \
         gamemanager.h \
         gamescene.h \
         mainwindow.h

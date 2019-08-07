@@ -2,13 +2,16 @@
 #define GAMEMANAGER_H
 #include <utility>
 
+typedef int TurnNumber;
+
 class GameManager{
 public:
+
     static GameManager* instance;
 
     static GameManager* getInstance();
 
-    int turn;
+    TurnNumber turn;
 
     enum nodeState
         { black = -1, empty = 0, white = 1 };
@@ -19,11 +22,41 @@ public:
 
     bool checkGameOver(std::pair<int, int> clickedPoint);
 
+    void initGame();
+
+    enum gameMode
+        { humanVshuman, humanVsCom, ComVsCom };
+
+    enum gameOrder
+        { playerFirst, comFirst };
+
+    inline void setGameMode(const gameMode _mode){
+        mode = _mode;
+    }
+
+    inline void setGameOrder(const gameOrder _order){
+        order = _order;
+    }
+
+    inline void modeSet(){
+        game.p_mode = mode;
+        game.p_order = order;
+    }
+
 private:
 
-    nodeState** gameMap;
+    typedef struct{
+        gameMode p_mode;
+        gameOrder p_order;
+    } presentGame;
 
-    void initGame();
+    presentGame game;
+
+    gameMode mode;
+
+    gameOrder order;
+
+    nodeState** gameMap;
 
     GameManager();
 

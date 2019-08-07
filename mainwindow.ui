@@ -19,12 +19,12 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>596</width>
-      <height>596</height>
+      <width>610</width>
+      <height>610</height>
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -87,13 +87,21 @@
     </property>
     <widget class="QMenu" name="menuMode_setting">
      <property name="title">
-      <string>Mode setting</string>
+      <string>Mode Setting</string>
      </property>
      <addaction name="actionhuman_vs_human"/>
      <addaction name="actionhuman_vs_com"/>
      <addaction name="actioncom_vs_com"/>
     </widget>
+    <widget class="QMenu" name="menuGame_Order">
+     <property name="title">
+      <string>Game Order</string>
+     </property>
+     <addaction name="actionPlayer_first"/>
+     <addaction name="actionComputer_first"/>
+    </widget>
     <addaction name="menuMode_setting"/>
+    <addaction name="menuGame_Order"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSetting"/>
@@ -142,6 +150,16 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionPlayer_first">
+   <property name="text">
+    <string>Player first</string>
+   </property>
+  </action>
+  <action name="actionComputer_first">
+   <property name="text">
+    <string>Computer first</string>
    </property>
   </action>
  </widget>
