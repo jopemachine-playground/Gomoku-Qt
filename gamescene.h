@@ -10,7 +10,9 @@
 #include "gamemanager.h"
 
 typedef GameManager::nodeState** GameMap;
+
 typedef GameManager::nodeState nodeState;
+
 typedef std::pair<int, int> ClickedPoint;
 
 class GameScene: public QGraphicsScene{

@@ -48,6 +48,10 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     auto gm = GameManager::getInstance();
     auto map = gm->getMap();
 
+    if(gm->isGameOver()){
+        return;
+    }
+
     QPointF pixelPoint = event->scenePos();
 
     // 클릭 포인트 판정 및 처리
@@ -64,8 +68,12 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
     player->layStone(*this, map, clickedPoint);
 
-    if(gm->checkGameOver(clickedPoint)){
+    GameManager::winnerInfo wi = gm->checkGameOver(clickedPoint);
+
+    if(wi.isOver == true){
         // 게임 오버 조건 만족 및 이벤트 처리
+        static_cast<HumanPlayer*>(wi.winner)->getColor();
+        gm->gameOver();
     }
 
     gm->nextTurn();

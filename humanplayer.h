@@ -2,6 +2,7 @@
 #define HUMANPLAYER_H
 
 #include "player.h"
+
 class HumanPlayer: public Player{
 
 public:
@@ -11,6 +12,10 @@ public:
     ~HumanPlayer();
 
     void layStone(GameScene& scene, GameMap map, ClickedPoint clickedPoint);
+
+    inline PlayerColor getColor(){
+        return color;
+    };
 
 private:
 

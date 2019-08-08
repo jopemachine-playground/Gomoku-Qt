@@ -3,31 +3,42 @@
 
 #include <utility>
 
-typedef int TurnNumber;
-
 class Player;
+
+typedef int TurnNumber;
 
 class GameManager{
 public:
-
-    static GameManager* getInstance();
-
-    enum nodeState
-        { black = -1, empty = 0, white = 1 };
-
-    inline nodeState** getMap() const{
-        return gameMap;
-    }
-
-    bool checkGameOver(std::pair<int, int> clickedPoint);
-
-    void initGame();
 
     enum gameMode
         { humanVshuman, humanVsCom, ComVsCom };
 
     enum gameOrder
         { playerFirst, comFirst };
+
+    enum nodeState
+        { black = -1, empty = 0, white = 1 };
+
+    typedef struct{
+        gameMode p_mode;
+        gameOrder p_order;
+        bool isOver;
+    } presentGame;
+
+    typedef struct{
+        Player* winner;
+        bool isOver;
+    } winnerInfo;
+
+    static GameManager* getInstance();
+
+    inline nodeState** getMap() const{
+        return gameMap;
+    }
+
+    winnerInfo checkGameOver(std::pair<int, int> clickedPoint);
+
+    void initGame();
 
     inline void setGameMode(const gameMode _mode){
         mode = _mode;
@@ -42,8 +53,20 @@ public:
         game.p_order = order;
     }
 
+    inline TurnNumber getTurn(){
+        return turn;
+    }
+
     inline void nextTurn(){
         ++turn;
+    }
+
+    inline void gameOver(){
+        game.isOver = true;
+    }
+
+    inline bool isGameOver(){
+        return game.isOver;
     }
 
     Player* getPlayerByTurn() const;
@@ -55,11 +78,6 @@ private:
     Player* opponent;
 
     static GameManager* instance;
-
-    typedef struct{
-        gameMode p_mode;
-        gameOrder p_order;
-    } presentGame;
 
     presentGame game;
 
@@ -75,5 +93,6 @@ private:
 
     ~GameManager();
 };
+
 
 #endif // GAMEMANAGER_H
