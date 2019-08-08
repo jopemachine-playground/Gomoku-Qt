@@ -4,7 +4,7 @@
 #define RANGE_DIVISION 20
 #define ONE_RECT_LENGTH 33
 
-#define WIN_TITLE "Omok"
+#define WIN_TITLE "Gomoku"
 
 #define BOARD_SIZE 15
 
