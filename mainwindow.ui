@@ -22,8 +22,8 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>635</width>
-      <height>635</height>
+      <width>502</width>
+      <height>502</height>
      </rect>
     </property>
     <property name="backgroundBrush">
@@ -48,7 +48,7 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>530</x>
       <y>20</y>
       <width>243</width>
       <height>52</height>
@@ -102,30 +102,7 @@
     <addaction name="actionNew_Game"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuSetting">
-    <property name="title">
-     <string>Setting</string>
-    </property>
-    <widget class="QMenu" name="menuMode_setting">
-     <property name="title">
-      <string>Mode Setting</string>
-     </property>
-     <addaction name="actionhuman_vs_human"/>
-     <addaction name="actionhuman_vs_com"/>
-     <addaction name="actioncom_vs_com"/>
-    </widget>
-    <widget class="QMenu" name="menuGame_Order">
-     <property name="title">
-      <string>Game Order</string>
-     </property>
-     <addaction name="actionPlayer_first"/>
-     <addaction name="actionComputer_first"/>
-    </widget>
-    <addaction name="menuMode_setting"/>
-    <addaction name="menuGame_Order"/>
-   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuSetting"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -175,6 +152,9 @@
    </property>
   </action>
   <action name="actionNew_Game">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>New Game</string>
    </property>

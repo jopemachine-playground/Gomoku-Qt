@@ -3,12 +3,16 @@
 #include "constant.h"
 #include "gamescene.h"
 #include "resourcemanager.h"
+#include "humanplayer.h"
+#include "computerplayer.h"
+
+#include <typeinfo>
 
 GameScene::GameScene(QWidget *parent): QGraphicsScene(parent){}
 
 bool GameScene::isValidInput(GameMap map, ClickedPoint clickedPoint){
 
-    if(clickedPoint.first == - 1){
+    if(clickedPoint.first >= BOARD_SIZE || clickedPoint.second >= BOARD_SIZE ){
         return false;
     }
 
@@ -56,14 +60,15 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 
     // 돌을 둠
-    // layStone(map, clickedPoint);
+    auto player = gm->getPlayerByTurn();
+
+    player->layStone(*this, map, clickedPoint);
 
     if(gm->checkGameOver(clickedPoint)){
         // 게임 오버 조건 만족 및 이벤트 처리
-
     }
 
-
+    gm->nextTurn();
 
     // qDebug() << pixelPoint.rx() << " " << pixelPoint.ry();
 }

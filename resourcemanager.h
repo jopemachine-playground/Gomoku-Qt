@@ -1,7 +1,7 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-#define RESPATH_BOARDPLATE "resource/img/boardplate_594.png"
+#define RESPATH_BOARDPLATE "resource/img/gomok.png"
 #define RESPATH_WHITESTONE "resource/img/white_32.png"
 #define RESPATH_BLACKSTONE "resource/img/black_32.png"
 
@@ -25,7 +25,17 @@ public:
 
     void deleteAllItem(GameScene& scene);
 
+    inline QPixmap* getWhiteStonePixMap(){
+        return whiteStone;
+    }
+
+    inline QPixmap* getBlackStonePixMap(){
+        return blackStone;
+    }
+
 private:
+
+    static ResourceManager* instance;
 
     ResourceManager();
 
@@ -38,9 +48,6 @@ private:
     QPixmap* whiteStone;
 
     QPixmap* blackStone;
-
-    static ResourceManager* instance;
-
 };
 
 

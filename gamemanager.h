@@ -12,8 +12,6 @@ public:
 
     static GameManager* getInstance();
 
-    TurnNumber turn;
-
     enum nodeState
         { black = -1, empty = 0, white = 1 };
 
@@ -44,6 +42,12 @@ public:
         game.p_order = order;
     }
 
+    inline void nextTurn(){
+        ++turn;
+    }
+
+    Player* getPlayerByTurn() const;
+
 private:
 
     Player* client;
@@ -64,6 +68,8 @@ private:
     gameOrder order;
 
     nodeState** gameMap;
+
+    TurnNumber turn;
 
     GameManager();
 

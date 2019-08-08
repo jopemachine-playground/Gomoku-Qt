@@ -29,7 +29,7 @@ void GameManager::initGame(){
         delete opponent;
     }
 
-    turn = 0;
+    turn = 1;
 
     gameMap = new nodeState* [BOARD_LENGTH_X];
     for (int i = 0; i < BOARD_LENGTH_X; i++){
@@ -86,10 +86,22 @@ void GameManager::initGame(){
 }
 
 bool GameManager::checkGameOver(std::pair<int, int> clickedPoint){
-
-
+    return false;
 }
 
 GameManager::GameManager(){
+    // 기본값 설정
+    mode = gameMode::humanVshuman;
+    order = gameOrder::playerFirst;
     initGame();
 }
+
+Player* GameManager::getPlayerByTurn() const{
+    if(game.p_order == gameOrder::playerFirst){
+        return (turn % 2 == 1) ? client : opponent;
+    }
+    else {
+        return (turn % 2 == 1) ? opponent : client;
+    }
+}
+

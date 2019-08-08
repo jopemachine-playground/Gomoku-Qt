@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QActionGroup>
 #include <QMainWindow>
 #include "gamescene.h"
 
@@ -33,9 +34,16 @@ private slots:
     void on_actionComputer_first_triggered();
 
 private:
+
     Ui::MainWindow *ui;
 
+    QMenu *menu;
+    QActionGroup* modeGroup;
+    QAction* menuAction;
+
     GameScene *gameScene;
+
+    void setMenubar();
 
 };
 

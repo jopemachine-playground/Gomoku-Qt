@@ -15,6 +15,8 @@ public:
 
 private:
 
+    bool isCalculating;
+
     PlayerColor color;
 
 };
