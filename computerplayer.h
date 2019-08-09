@@ -2,6 +2,7 @@
 #define COMPUTERPLAYER_H
 
 #include "player.h"
+
 class ComputerPlayer: public Player{
 
 public:
@@ -11,7 +12,6 @@ public:
     ~ComputerPlayer();
 
     void layStone(GameScene& scene, GameMap map, ClickedPoint clickedPoint);
-
 
 private:
 

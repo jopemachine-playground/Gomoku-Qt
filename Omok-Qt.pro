@@ -31,6 +31,7 @@ SOURCES += \
         humanplayer.cpp \
         main.cpp \
         mainwindow.cpp \
+        player.cpp \
         resourcemanager.cpp
 
 HEADERS += \

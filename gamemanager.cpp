@@ -11,11 +11,6 @@
 #include "mainwindow.h"
 
 GameManager* GameManager::instance = nullptr;
-MainWindow* GameManager::windowUI = nullptr;
-
-void GameManager::Init(MainWindow* _window){
-    windowUI = _window;
-}
 
 GameManager* GameManager::getInstance(){
     if(instance == nullptr){
@@ -30,14 +25,21 @@ GameManager::~GameManager(){
     delete opponent;
 }
 
-void GameManager::initGame(){
+void GameManager::RestartGame(){
+
+    MainWindow::getInstance()->setTurnNumber("0");
 
     // 게임을 새로 시작하는 경우 기존의 플레이어 객체들은 제거한다
     if(client != nullptr || opponent != nullptr){
         delete client;
         delete opponent;
-        windowUI->setTurnNumber("0");
     }
+
+    InitGame();
+}
+
+
+void GameManager::InitGame(){
 
     turn = 0;
 
@@ -201,7 +203,7 @@ GameManager::GameManager(){
     mode = gameMode::humanVshuman;
     order = gameOrder::playerFirst;
 
-    initGame();
+    InitGame();
 }
 
 Player* GameManager::getPlayerByTurn() const{
@@ -216,6 +218,6 @@ Player* GameManager::getPlayerByTurn() const{
 
 void GameManager::nextTurn(){
     ++turn;
-    windowUI->setTurnNumber(QString::number(turn));
+    MainWindow::getInstance()->setTurnNumber(QString::number(turn));
 }
 

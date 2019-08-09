@@ -16,7 +16,7 @@ class MainWindow : public QMainWindow
 
 public:
 
-    explicit MainWindow(QWidget *parent = nullptr);
+    static MainWindow* getInstance();
 
     ~MainWindow();
 
@@ -40,6 +40,10 @@ private slots:
 
 private:
 
+    static MainWindow* instance;
+
+    explicit MainWindow(QWidget *parent = nullptr);
+
     Ui::MainWindow *ui;
 
     QMenu *menu;
@@ -47,9 +51,6 @@ private:
     QAction* menuAction;
 
     GameScene *gameScene;
-
-    QLCDNumber *turnLCD;
-    QLCDNumber *elapsedTimeLCD;
 
     void setMenubar();
 

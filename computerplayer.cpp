@@ -22,6 +22,6 @@ void ComputerPlayer::layStone(GameScene& scene, GameMap map, ClickedPoint clicke
 
     if(color == nodeState::white) res->genWhiteStone(scene, genPt);
 
-    else res->genBlackStone(scene, genPt);
+    res->genBlackStone(scene, genPt);
 
 }

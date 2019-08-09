@@ -2,9 +2,9 @@
 #define GAMEMANAGER_H
 
 #include <utility>
+#include <QLCDNumber>
 
 class Player;
-class MainWindow;
 
 typedef int TurnNumber;
 
@@ -31,8 +31,6 @@ public:
         bool isOver;
     } winnerInfo;
 
-    static void Init(MainWindow* window);
-
     static GameManager* getInstance();
 
     inline nodeState** getMap() const{
@@ -41,7 +39,7 @@ public:
 
     winnerInfo checkGameOver(std::pair<int, int> clickedPoint);
 
-    void initGame();
+    void RestartGame();
 
     inline void setGameMode(const gameMode _mode){
         mode = _mode;
@@ -80,8 +78,6 @@ private:
 
     static GameManager* instance;
 
-    static MainWindow* windowUI;
-
     presentGame game;
 
     gameMode mode;
@@ -91,6 +87,8 @@ private:
     nodeState** gameMap;
 
     TurnNumber turn;
+
+    void InitGame();
 
     GameManager();
 

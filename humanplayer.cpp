@@ -15,7 +15,7 @@ void HumanPlayer::layStone(GameScene& scene, GameMap map, ClickedPoint clickedPo
 
     auto res = ResourceManager::getInstance();
 
-    map[clickedPoint.first][clickedPoint.second] = (nodeState) this->color;
+    map[clickedPoint.first][clickedPoint.second] = static_cast<nodeState> (this->color);
 
     std::pair<int, int> genPt =
         {clickedPoint.first * ONE_RECT_LENGTH - 16, clickedPoint.second * ONE_RECT_LENGTH - 16};

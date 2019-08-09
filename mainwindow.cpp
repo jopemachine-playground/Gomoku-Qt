@@ -5,20 +5,26 @@
 #include "resourcemanager.h"
 #include "constant.h"
 
+MainWindow* MainWindow::instance = nullptr;
+
+MainWindow* MainWindow::getInstance(){
+    if(instance == nullptr){
+        instance = new MainWindow;
+    }
+    return instance;
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    GameManager::Init(this);
+
     GameManager::getInstance();
     setFixedSize(WIN_SIZE_X, WIN_SIZE_Y);
     ui->setupUi(this);
     gameScene = new GameScene(this);
     gameScene->boardplateLoad();
     ui->graphicsView->setScene(gameScene);
-
-    turnLCD = ui->turnLCD;
-    elapsedTimeLCD = ui->elapsedTimeLCD;
 
     setWindowTitle(WIN_TITLE);
     setMenubar();
@@ -87,14 +93,14 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::setTurnNumber(const QString& number){
-    turnLCD->display(number);
+    ui->turnLCD->display(number);
 }
 
 void MainWindow::on_actionNew_Game_triggered()
 {
     auto res = ResourceManager::getInstance();
     auto gm = GameManager::getInstance();
-    gm->initGame();
+    gm->RestartGame();
     res->deleteAllItem(*gameScene);
 }
 

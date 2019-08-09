@@ -15,7 +15,7 @@ public:
 
     inline PlayerColor getColor(){
         return color;
-    };
+    }
 
 private:
 

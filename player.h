@@ -9,6 +9,8 @@ public:
 
     Player(){}
 
+    virtual ~Player();
+
     virtual void layStone(GameScene& scene, GameMap map, ClickedPoint clickedPoint) = 0;
 
     enum PlayerColor{
