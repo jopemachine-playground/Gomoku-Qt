@@ -9,14 +9,18 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    GameManager::Init(this);
     GameManager::getInstance();
     setFixedSize(WIN_SIZE_X, WIN_SIZE_Y);
     ui->setupUi(this);
     gameScene = new GameScene(this);
     gameScene->boardplateLoad();
     ui->graphicsView->setScene(gameScene);
-    setWindowTitle(WIN_TITLE);
 
+    turnLCD = ui->turnLCD;
+    elapsedTimeLCD = ui->elapsedTimeLCD;
+
+    setWindowTitle(WIN_TITLE);
     setMenubar();
 }
 
@@ -80,6 +84,10 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete modeGroup;
+}
+
+void MainWindow::setTurnNumber(const QString& number){
+    turnLCD->display(number);
 }
 
 void MainWindow::on_actionNew_Game_triggered()

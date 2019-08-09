@@ -23,8 +23,8 @@ bool GameScene::isValidInput(GameMap map, ClickedPoint clickedPoint){
 
 ClickedPoint GameScene::inputToMap(QPointF& pixelPoint)
 {
-    int x = static_cast<int>(pixelPoint.rx());
-    int y = static_cast<int>(pixelPoint.ry());
+    int x = static_cast<int>(pixelPoint.rx()) - START_PT;
+    int y = static_cast<int>(pixelPoint.ry()) - START_PT;
 
     // relevant 값은 클릭한 값보다 더 적은 ONE_RECT_LENGTH의 (가능한 가장 큰 값인) 배수
     int relevantX = x - (x % ONE_RECT_LENGTH);

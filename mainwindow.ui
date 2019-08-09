@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>923</width>
-    <height>731</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,41 +17,13 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>502</width>
-      <height>502</height>
-     </rect>
-    </property>
-    <property name="backgroundBrush">
-     <brush brushstyle="Dense3Pattern">
-      <color alpha="255">
-       <red>161</red>
-       <green>145</green>
-       <blue>146</blue>
-      </color>
-     </brush>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="transformationAnchor">
-     <enum>QGraphicsView::NoAnchor</enum>
-    </property>
-    <property name="resizeAnchor">
-     <enum>QGraphicsView::NoAnchor</enum>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>550</x>
       <y>20</y>
-      <width>243</width>
-      <height>52</height>
+      <width>201</width>
+      <height>58</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -65,7 +37,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLCDNumber" name="elapsedTimeLCD"/>
        </item>
       </layout>
      </item>
@@ -79,11 +51,30 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2"/>
+        <widget class="QLCDNumber" name="turnLCD"/>
        </item>
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>21</x>
+      <y>21</y>
+      <width>501</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="transformationAnchor">
+     <enum>QGraphicsView::NoAnchor</enum>
+    </property>
+    <property name="resizeAnchor">
+     <enum>QGraphicsView::NoAnchor</enum>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -91,7 +82,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>923</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>

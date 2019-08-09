@@ -4,6 +4,7 @@
 #include <utility>
 
 class Player;
+class MainWindow;
 
 typedef int TurnNumber;
 
@@ -29,6 +30,8 @@ public:
         Player* winner;
         bool isOver;
     } winnerInfo;
+
+    static void Init(MainWindow* window);
 
     static GameManager* getInstance();
 
@@ -57,9 +60,7 @@ public:
         return turn;
     }
 
-    inline void nextTurn(){
-        ++turn;
-    }
+    void nextTurn();
 
     inline void gameOver(){
         game.isOver = true;
@@ -78,6 +79,8 @@ private:
     Player* opponent;
 
     static GameManager* instance;
+
+    static MainWindow* windowUI;
 
     presentGame game;
 

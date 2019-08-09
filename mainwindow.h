@@ -3,6 +3,7 @@
 
 #include <QActionGroup>
 #include <QMainWindow>
+#include <QLCDNumber>
 #include "gamescene.h"
 
 namespace Ui {
@@ -14,8 +15,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
     explicit MainWindow(QWidget *parent = nullptr);
+
     ~MainWindow();
+
+    void setTurnNumber(const QString&);
 
 private slots:
 
@@ -42,6 +47,9 @@ private:
     QAction* menuAction;
 
     GameScene *gameScene;
+
+    QLCDNumber *turnLCD;
+    QLCDNumber *elapsedTimeLCD;
 
     void setMenubar();
 

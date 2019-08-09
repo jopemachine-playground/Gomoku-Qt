@@ -8,8 +8,14 @@
 #include "player.h"
 #include "humanplayer.h"
 #include "computerplayer.h"
+#include "mainwindow.h"
 
 GameManager* GameManager::instance = nullptr;
+MainWindow* GameManager::windowUI = nullptr;
+
+void GameManager::Init(MainWindow* _window){
+    windowUI = _window;
+}
 
 GameManager* GameManager::getInstance(){
     if(instance == nullptr){
@@ -30,9 +36,10 @@ void GameManager::initGame(){
     if(client != nullptr || opponent != nullptr){
         delete client;
         delete opponent;
+        windowUI->setTurnNumber("0");
     }
 
-    turn = 1;
+    turn = 0;
 
     game.isOver = false;
 
@@ -199,10 +206,16 @@ GameManager::GameManager(){
 
 Player* GameManager::getPlayerByTurn() const{
     if(game.p_order == gameOrder::playerFirst){
-        return (turn % 2 == 1) ? client : opponent;
+        return (turn % 2 == 0) ? client : opponent;
     }
     else {
-        return (turn % 2 == 1) ? opponent : client;
+        return (turn % 2 == 0) ? opponent : client;
     }
+}
+
+
+void GameManager::nextTurn(){
+    ++turn;
+    windowUI->setTurnNumber(QString::number(turn));
 }
 

@@ -1,4 +1,5 @@
 #include "resourcemanager.h"
+#include "constant.h"
 
 ResourceManager* ResourceManager::instance = nullptr;
 
@@ -32,7 +33,7 @@ void ResourceManager::genWhiteStone(GameScene& scene, std::pair<int, int> pos){
 
     auto whiteStoneItem = new QGraphicsPixmapItem(*whiteStone);
 
-    whiteStoneItem->setPos(pos.first, pos.second);
+    whiteStoneItem->setPos(pos.first + START_PT, pos.second + START_PT);
 
     items->push_back(whiteStoneItem);
 
@@ -43,7 +44,7 @@ void ResourceManager::genBlackStone(GameScene& scene, std::pair<int, int> pos){
 
     auto blackStoneItem = new QGraphicsPixmapItem(*blackStone);
 
-    blackStoneItem->setPos(pos.first, pos.second);
+    blackStoneItem->setPos(pos.first + START_PT, pos.second + START_PT);
 
     items->push_back(blackStoneItem);
 
