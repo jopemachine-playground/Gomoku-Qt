@@ -20,7 +20,7 @@ void HumanPlayer::layStone(GameScene& scene, GameMap map, ClickedPoint clickedPo
     std::pair<int, int> genPt =
         {clickedPoint.first * ONE_RECT_LENGTH - 16, clickedPoint.second * ONE_RECT_LENGTH - 16};
 
-    if(color == nodeState::white) res->genWhiteStone(scene, genPt);
+    if(static_cast<nodeState>(color) == nodeState::white) res->genWhiteStone(scene, genPt);
 
     else res->genBlackStone(scene, genPt);
 

@@ -18,6 +18,14 @@ public:
         white = 1
     };
 
+    inline PlayerColor getColor(){
+        return color;
+    }
+
+protected:
+
+    PlayerColor color;
+
 };
 
 typedef Player::PlayerColor PlayerColor;

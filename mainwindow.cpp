@@ -26,8 +26,28 @@ MainWindow::MainWindow(QWidget *parent) :
     gameScene->boardplateLoad();
     ui->graphicsView->setScene(gameScene);
 
+    // Elapsed Time, Timer Setting
+    elapsedTime = 0;
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(timeUpdate()));
+    timer->start(1000);
+    ui->elapsedTimeLCD->setPalette(Qt::black);
+    ui->turnLCD->setPalette(Qt::black);
+
     setWindowTitle(WIN_TITLE);
     setMenubar();
+}
+
+void MainWindow::timeUpdate(){
+
+    ++elapsedTime;
+
+    QString out = QString("%1:%2:%3").arg( elapsedTime / 3600       , 2, 10, QChar('0'))
+                                     .arg((elapsedTime % 3600) / 60 , 2, 10, QChar('0'))
+                                     .arg( elapsedTime % 60         , 2, 10, QChar('0'));
+
+    ui->elapsedTimeLCD->display(out);
+
 }
 
 void MainWindow::setMenubar(){
@@ -85,11 +105,11 @@ void MainWindow::setMenubar(){
 
 }
 
-
 MainWindow::~MainWindow()
 {
     delete ui;
     delete modeGroup;
+    delete timer;
 }
 
 void MainWindow::setTurnNumber(const QString& number){

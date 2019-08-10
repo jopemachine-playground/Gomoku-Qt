@@ -3,12 +3,15 @@
 
 #include <utility>
 #include <QLCDNumber>
+#include <QElapsedTimer>
+#include <QTimer>
 
 class Player;
 
 typedef int TurnNumber;
 
 class GameManager{
+
 public:
 
     enum gameMode

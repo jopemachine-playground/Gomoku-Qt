@@ -9,17 +9,9 @@ public:
 
     HumanPlayer(PlayerColor _color);
 
-    ~HumanPlayer();
+    ~HumanPlayer() override;
 
-    void layStone(GameScene& scene, GameMap map, ClickedPoint clickedPoint);
-
-    inline PlayerColor getColor(){
-        return color;
-    }
-
-private:
-
-    PlayerColor color;
+    void layStone(GameScene& scene, GameMap map, ClickedPoint clickedPoint) override;
 
 };
 #endif // HUMANPLAYER_H

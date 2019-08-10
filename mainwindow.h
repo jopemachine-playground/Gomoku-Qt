@@ -38,7 +38,11 @@ private slots:
 
     void on_actionComputer_first_triggered();
 
+    void timeUpdate();
+
 private:
+
+    int elapsedTime;
 
     static MainWindow* instance;
 
@@ -51,6 +55,8 @@ private:
     QAction* menuAction;
 
     GameScene *gameScene;
+
+    QTimer* timer;
 
     void setMenubar();
 

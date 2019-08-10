@@ -9,15 +9,13 @@ public:
 
     ComputerPlayer(PlayerColor _color);
 
-    ~ComputerPlayer();
+    ~ComputerPlayer() override;
 
-    void layStone(GameScene& scene, GameMap map, ClickedPoint clickedPoint);
+    void layStone(GameScene& scene, GameMap map, ClickedPoint clickedPoint) override;
 
 private:
 
     bool isCalculating;
-
-    PlayerColor color;
 
 };
 
