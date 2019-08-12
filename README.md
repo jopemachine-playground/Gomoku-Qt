@@ -1,5 +1,9 @@
 <h2>Outline</h2>
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3561bf2c7c914e8c9e3bb585f7eef8f0)](https://www.codacy.com/app/jopemachine/Gomoku-Qt?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jopemachine/Gomoku-Qt&amp;utm_campaign=Badge_Grade)
+
 2019 Personal Project
+
 
 <h2>Environment</h2>
 
