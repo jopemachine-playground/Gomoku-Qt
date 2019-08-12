@@ -1,4 +1,7 @@
-#include <QDebug>
+//  ==============================+===============================================================
+//  @ Author : jopemachine
+//  ==============================+===============================================================
+
 #include <memory.h>
 #include <queue>
 #include <utility>
@@ -221,4 +224,3 @@ void GameManager::nextTurn(){
     ++turn;
     MainWindow::getInstance()->setTurnNumber(QString::number(turn));
 }
-

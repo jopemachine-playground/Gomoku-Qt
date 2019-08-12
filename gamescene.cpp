@@ -1,4 +1,7 @@
-#include <QDebug>
+//  ==============================+===============================================================
+//  @ Author : jopemachine
+//  ==============================+===============================================================
+
 #include <QGraphicsSceneMouseEvent>
 #include "constant.h"
 #include "gamescene.h"
@@ -85,5 +88,3 @@ void GameScene::boardplateLoad(){
     auto res = ResourceManager::getInstance();
     this->addItem(res->getBoardPlate());
 }
-
-
