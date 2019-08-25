@@ -15,17 +15,24 @@ flag.Email   =   0
 flag.Telephone   =   0
 flag.Github_Account   =   0
 flag.Ref_URLs   =   1
+flag.Created_Date   =   0
+flag.Team   =   1
+flag.Memo   =   0
 
 # Globals
 global.Extension        =  cpp, h
-global.Project_Path     =  C:\Omok-Qt
+global.Project_Path     =  C:\xampp\ev-commentService
 global.Author           =  jopemachine
-global.Separator        =  // 
+global.Separator        =  
 global.Sub_Div_Line     =  ==============================+===============================================================
-global.Sup_Div_Line     =  ==============================+===============================================================
+-->
+global.Sup_Div_Line     =  <!--
+==============================+===============================================================
 global.Email            =   
 global.Telephone        =   
 global.Github_Account   =   
+global.Team             =  EV
+global.Memo             =  
 
 # Desc
 player.h::desc       +=       HumanPlayer와 ComputerPlayer를 자식으로 가짐.
