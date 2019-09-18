@@ -10,8 +10,6 @@
 >Qt 5.12.4 (MSVC 2017, 32bit)
 >
 >Qt Creator 4.9.2 Community
->
->AlphaZero (https://github.com/junxiaosong/AlphaZero_Gomoku)
 
 
 
